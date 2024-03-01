@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+
+}
+
+h1{
+    font-size: 3em;
+    font-style:italic;
+    text-align: center;
+}
+
+.gameboard{
+    width: 50vw;
+    height: 50vh;
+    border: solid black 1px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;  
+    
+}
+
+.cells{
+    border: solid green 1px;
+}
+
+.ui{
+    display: flex;
+    justify-content: center;
+}
