@@ -30,3 +30,13 @@ h1{
     display: flex;
     justify-content: center;
 }
+
+.ui input{
+    font-size: 1em;
+}
+
+.buttons{
+    font-size: 2em;
+    background-color: black;
+    color: white;
+}
