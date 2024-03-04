@@ -2,11 +2,29 @@
 
 
 const gameBoard = (() => {
-    let gameboard = ["", "", "", "", "", "", "", "", ""]
+    let gameboard = []
+    let boardHTML = document.getElementsByClassName("cells") //grabs a bunch of classes and places them into an array
+    for (i = 0; i < boardHTML.length; i++){
+        gameboard.push(boardHTML[i])
+    }
+    console.log(gameboard)
+    const render = () => { //this was just a for loop before, but a vid said to place the loading of the board into a render function
+    }
 
 
+    return{
+        render
+    }
+    //loop through cells class
+    //assign each cell class an index number
+    //push all off those classes into the gameboard array
 
-})
+
+  
+
+
+})();
+
 
 const displayController = (() => {
 
@@ -55,32 +73,28 @@ const Game = (() => {
         
     }
 
-    const handleClick = (e) => { //has to be initialized first before cellElements can call  upon it
-        console.log("clicked")
-        let player1turn
-        //place a marker
-        let cell = e.target
-        let currentTurn = player1turn ? player1UserName.mark : player2UserName.mark 
-        placeMark(cell, currentTurn)
-        //check for a win
-        //check for a draw
-        //switch turns
+    //this only seems to work when it is down here. No idea why unfortunately 
+
+    const handleClick = (event) => { //has to be initialized first before cellElements can call  upon it
+            console.log(event)
+        //stuck at handleclick.
+    
+        //current issues a) unsure as to why copying all code from here and below the const cells, and placing them under render why no click event is registered
+
+        //b) how do I have it so that the correct array index is shown
     }
     
-    function placeMark(cell, currentTurn){
-        cell.add(currentTurn)
-    }
+    const cells = document.querySelectorAll('.cells')
+        cells.forEach((individualcell) => {
+        individualcell.addEventListener("click", handleClick)
+        
+        })
 
-    const cellElements = document.querySelectorAll('[data-cell]')
-     cellElements.forEach((cell) => {
-            cell.addEventListener('click', handleClick, {once: true}) //this makes it so once it's been clicked, it can't be clicked again
-    })
-
-    
 
 
     return{
         start,
+        handleClick
     }
   
 })();
