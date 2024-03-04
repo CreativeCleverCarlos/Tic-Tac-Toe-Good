@@ -82,6 +82,8 @@ const Game = (() => {
         //current issues a) unsure as to why copying all code from here and below the const cells, and placing them under render why no click event is registered
 
         //b) how do I have it so that the correct array index is shown
+
+        //one possible solution, is to use the "the odin project guide" and go to the end to recall how he debugs things
     }
     
     const cells = document.querySelectorAll('.cells')
