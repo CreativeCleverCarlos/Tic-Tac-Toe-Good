@@ -1,6 +1,3 @@
-
-
-
 const gameBoard = (() => {
     let gameboard = ["", "", "", "", "", "", "", "", ""]
 
@@ -23,7 +20,7 @@ const displayController = (() => {
         name,
         mark
     }
- };
+ }; 
 
 
 const Game = (() => { 
@@ -40,7 +37,7 @@ const Game = (() => {
         //first, the gameboard needs to be shown to the players 
         const showGameBoard = document.querySelector("main")
         showGameBoard.style.display = "block";
-        
+        gig
         players = [
             createPlayer(document.querySelector("#player1").value, "X"),
             createPlayer(document.querySelector("#player2").value, "O")
@@ -57,19 +54,12 @@ const Game = (() => {
 
     const handleClick = (e) => { //has to be initialized first before cellElements can call  upon it
         console.log("clicked")
-        let player1turn
         //place a marker
-        let cell = e.target
-        let currentTurn = player1turn ? player1UserName.mark : player2UserName.mark 
-        placeMark(cell, currentTurn)
         //check for a win
         //check for a draw
         //switch turns
     }
     
-    function placeMark(cell, currentTurn){
-        cell.add(currentTurn)
-    }
 
     const cellElements = document.querySelectorAll('[data-cell]')
      cellElements.forEach((cell) => {
@@ -84,3 +74,5 @@ const Game = (() => {
     }
   
 })();
+
+//test
