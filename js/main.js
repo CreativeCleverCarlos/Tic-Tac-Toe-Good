@@ -1,19 +1,29 @@
 
-
+//a project to come back to. couldn't get it up and running smoothly
 
 const gameBoard = (() => {
-    let gameboard = []
+    let gameboard = ["", "", "", "", "", "", "", "", "", ""]
     let boardHTML = document.getElementsByClassName("cells") //grabs a bunch of classes and places them into an array
     for (i = 0; i < boardHTML.length; i++){
-        gameboard.push(boardHTML[i])
+        gameboard.push(boardHTML[i].innerText)
     }
     console.log(gameboard)
     const render = () => { //this was just a for loop before, but a vid said to place the loading of the board into a render function
+        for (let i = 0; i < gameboard.length; i++){
+            boardHTML[i].innerText = gameboard[i]
+        }
+  
     }
+
+    const update = (index, value) => {
+        gameboard[index] = value
+        render()
+    };
 
 
     return{
-        render
+        render,
+        update
     }
     //loop through cells class
     //assign each cell class an index number
@@ -41,11 +51,12 @@ const displayController = (() => {
         name,
         mark
     }
- };
+ }
 
 
 const Game = (() => { 
     let players = []
+    let currentPlayerIndex;
 
     //initiliaze the game off the start button
     const startGamebtn = document.querySelector("#start-Game");
@@ -63,6 +74,8 @@ const Game = (() => {
             createPlayer(document.querySelector("#player1").value, "X"),
             createPlayer(document.querySelector("#player2").value, "O")
         ]
+
+        currentPlayerIndex = 0
         
         //just needed to add the .innerHTML to have the name be displayed when it was attached to the appropriate ID
 
@@ -76,7 +89,9 @@ const Game = (() => {
     //this only seems to work when it is down here. No idea why unfortunately 
 
     const handleClick = (event) => { //has to be initialized first before cellElements can call  upon it
-            console.log(event)
+         let index = event.target.id
+         gameBoard.update(index, players[currentPlayerIndex].mark)
+         console.log(index)
         //stuck at handleclick.
     
         //current issues a) unsure as to why copying all code from here and below the const cells, and placing them under render why no click event is registered
@@ -88,7 +103,7 @@ const Game = (() => {
     
     const cells = document.querySelectorAll('.cells')
         cells.forEach((individualcell) => {
-        individualcell.addEventListener("click", handleClick)
+        individualcell.addEventListener("click", handleClick, {once: true})
         
         })
 
@@ -103,6 +118,3 @@ const Game = (() => {
 
 //test
 
-//test 1:19pm
-
-//repository test

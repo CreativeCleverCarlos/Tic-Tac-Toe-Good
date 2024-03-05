@@ -28,6 +28,8 @@ main{
 
 .cells{
     border: solid green 1px;
+    width: 100%;
+    height: 100%;
 }
 
 .ui{
